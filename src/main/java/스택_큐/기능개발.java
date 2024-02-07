@@ -8,6 +8,7 @@ public class 기능개발 {
       return null;
     }
 
+    int[] answer = {};
     Queue<Double> queue = new LinkedList<>();
     Queue<Integer> answerQueue = new LinkedList<>();
 
@@ -26,13 +27,11 @@ public class 기능개발 {
       answerQueue.add(cnt);
     }
 
-    int[] answer = new int[answerQueue.size()];
+    answer = new int[answerQueue.size()];
     for (int i = 0; i < answer.length; i++) {
       answer[i] = answerQueue.remove();
     }
-
-    return answer!=null ? answer : null;
+    return answer;
   }
-
 
 }
