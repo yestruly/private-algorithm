@@ -16,13 +16,13 @@ public class P11724 {
     StringTokenizer st = new StringTokenizer(br.readLine());
     int n = Integer.parseInt(st.nextToken());
     int m = Integer.parseInt(st.nextToken());
-    arr = new ArrayList[n+1];
-    visited = new boolean[n+1];
+    arr = new ArrayList[n + 1];
+    visited = new boolean[n + 1];
 
-    for (int i = 1; i <=n ; i++) {
+    for (int i = 1; i <= n; i++) {
       arr[i] = new ArrayList<>();
     }
-    for (int i = 0; i <m ; i++) {
+    for (int i = 0; i < m; i++) {
       st = new StringTokenizer(br.readLine());
       int num1 = Integer.parseInt(st.nextToken());
       int num2 = Integer.parseInt(st.nextToken());
@@ -30,17 +30,17 @@ public class P11724 {
       arr[num2].add(num1);
     }
 
-    int cnt =0;
-    for (int i = 1; i <= n; i++) {
+    int count = 0;
+    for (int i = 1; i <=n ; i++) {
       if(!visited[i]){
-        cnt++;
         dfs(i);
+        count++;
       }
     }
-    System.out.println(cnt);
+    System.out.println(count);
   }
 
-  private static void dfs(int i) {
+  static void dfs(int i){
     if(visited[i]){
       return;
     }
