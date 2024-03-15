@@ -6,30 +6,39 @@ public class 시저_암호 {
       return null;
     }
     String answer = "";
+    char[] upper = {'A','B','C','D','E','F','G', 'H','I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+    char[] lower = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     char[] arr = s.toCharArray();
 
     for(char c :arr){
       if(c==' '){
         answer += " ";
       }else{
-        c +=n;
-        System.out.println(c);
-        if ((c>'Z' && c<'a') || c>'z'){
-          c -=26;
-          answer+= c;
+        if(Character.isUpperCase(c)){
+          answer += toPassword(c,upper,n);
         }else{
-          answer+= c;
+          answer += toPassword(c,lower, n);
         }
-
       }
     }
     return answer;
   }
 
-  public static void main(String[] args) {
-    System.out.println((int)'z'-'a');
-    System.out.println((int)'Z'+" "+(int)'@');
-    System.out.println(solution("ABCDEFGHIJKLMNOPQRSTUVWXYZ",25));
+  private static String toPassword(char c, char[] chars, int n) {
+    int idx = 0;
+    String str="";
+    for (int i = 0; i < chars.length; i++) {
+      if(c==chars[i]){
+        if(i+n>= chars.length){
+          idx = chars.length-(i+n);
+          str += idx>=0 ? chars[idx]:chars[-idx];
+        }else{
+          str+=chars[i+n];
+        }
+      }
+    }
+    return str;
   }
 
 }
