@@ -37,7 +37,7 @@ public class P17387 {
 
     if(abc*abd == 0 && cda*cdb == 0 ){
       return isOverlap(x1,y1,x2,y2,x3,y3,x4,y4);
-    }else if(abc*abd < 0 && cda*cdb < 0 ){
+    }else if(abc*abd <= 0 && cda*cdb <= 0 ){
       return true;
     }
     return false;
