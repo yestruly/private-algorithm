@@ -23,6 +23,7 @@ public class P2293 {
         count[j] += count[j - coins[i]];
       }
     }
+
     System.out.println(count[k]);
   }
 
